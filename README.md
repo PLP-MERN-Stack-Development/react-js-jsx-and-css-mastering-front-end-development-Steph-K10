@@ -1,66 +1,116 @@
-# React.js and Tailwind CSS Assignment
+# Week 3 React.js and Tailwind CSS Assignment
 
 This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
 
-## Assignment Overview
+## 🌟 Features
+### 🎯 Task Management
+- Add, edit, and delete tasks
+- Mark tasks as complete/incomplete
+- Filter tasks (All, Active, Completed)
+- Local storage persistence
+- Task statistics, clear completed tasks
 
-You will:
-1. Set up a React project with Vite and Tailwind CSS
-2. Create reusable UI components
-3. Implement state management using React hooks
-4. Integrate with external APIs
-5. Style your application using Tailwind CSS
+### 🌐 API Integration
+- Fetch data from JSONPlaceholder API
+- Real-time search functionality
+- Pagination with "Load More"
+- Loading states and error handling
+- Aesthetic card-based layout
 
-## Getting Started
+### 🎨 User Experience
+- Dark/Light theme toggle
+- Fully responsive design
+- Smooth animations and transitions
+- Interactive UI components
+- Fast and performant
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm run dev
-   ```
+## 🚀 Live Demo
+Live Application URL: [YOUR_VERCEL_APP_URL_HERE]()
 
-## Files Included
 
-- `Week3-Assignment.md`: Detailed assignment instructions
-- Starter files for your React application:
-  - Basic project structure
-  - Pre-configured Tailwind CSS
-  - Sample component templates
+## 📸 Application Screenshots
+### Light Theme
+[Clean light theme interface with task management](images/light.png)
 
-## Requirements
+### Dark Theme
+[Dark theme with reduced eye strain](images/dark.png)
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Code editor (VS Code recommended)
+### API Data Explorer
+[API data display in light mode](images/dataExplorer.png)
+
+### API Data Explorer Load State
+[API loading state](images/loading.png)
+
+
+
+## 🛠️ Tech Stack
+- **Frontend**: React 18, Vite
+- **Styling**: Tailwind CSS
+- **Routing**: React Router DOM
+- **State Management**: React Hooks + Context API
+- **API**: JSONPlaceholder REST API
+- **Deployment**: Vercel
 
 ## Project Structure
 
 ```
 src/
-├── components/       # Reusable UI components
-├── pages/           # Page components
-├── hooks/           # Custom React hooks
-├── context/         # React context providers
-├── api/             # API integration functions
-├── utils/           # Utility functions
-└── App.jsx          # Main application component
+├── components/          # Reusable UI components
+│   ├── Button.jsx      # Customizable button component
+│   ├── TaskManager.jsx # Main task management
+│   ├── Navbar.jsx      # Navigation header
+│   └── Footer.jsx      # Site footer
+├── pages/              # Main application pages
+│   └── Posts.jsx       # API data display
+├── hooks/              # Custom React hooks
+│   └── useLocalStorage.js # Local storage hook
+├── context/            # React context providers
+│   └── ThemeContext.jsx # Dark/light theme
+├── api/                # API integration
+│   └── jsonPlaceholder.js # External API calls
+└── utils/              # Utility functions
 ```
 
-## Submission
+## 📥 Installation & Setup
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
+- Modern web browser
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+**Step 1: Clone the Repository**
+```
+git clone git@github.com:PLP-MERN-Stack-Development/react-js-jsx-and-css-mastering-front-end-development-Steph-K10.git
+```
 
-1. Complete all required components and features
-2. Implement proper state management with hooks
-3. Integrate with at least one external API
-4. Style your application with Tailwind CSS
-5. Deploy your application and add the URL to your README.md
+**Step 2: Install Dependencies**
+```
+npm install
+```
+
+**Step 3: Run Development Server**
+```
+npm run dev
+```
+The application will open at http://localhost:5173
+
+## 🎯 Usage Guide
+### Managing Tasks
+1. **Add Task**: Type in the input field and click "Add Task" or press Enter
+2. **Complete Task**: Click the checkbox next to any task
+3. **Delete Task**: Hover over a task and click the trash icon
+4. **Filter Tasks**: Use the filter buttons (All, Active, Completed)
+5. **Clear Completed**: Remove all completed tasks at once
+
+### Exploring API Data
+1. **Switch to API Tab**: Click "API Data Explorer" in navigation
+2. **Search Posts**: Use the search bar to filter posts
+3. **Load More**: Click "Load More Posts" to paginate
+4. **View Details**: Each card shows post title, content, and metadata
+
+### Theme Customization
+- Click the moon/sun icon in the navbar to toggle themes
+- Theme preference is saved in local storage
+- System preference is respected on first visit
 
 ## Resources
 
