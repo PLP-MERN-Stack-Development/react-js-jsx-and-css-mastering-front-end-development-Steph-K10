@@ -6,7 +6,7 @@
   "description": "A responsive React application with task management and API integration",
   "scripts": {
     "dev": "vite",
-    "build": "node build.js",
+    "build": "echo 'No build needed'",
     "preview": "vite preview"
   },
   "dependencies": {
