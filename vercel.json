@@ -1,15 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "buildCommand": "node -e \"require('child_process').execSync('npx vite build', {stdio: 'inherit'})\"",
+  "outputDirectory": "dist",
+  "installCommand": "npm install"
 }
