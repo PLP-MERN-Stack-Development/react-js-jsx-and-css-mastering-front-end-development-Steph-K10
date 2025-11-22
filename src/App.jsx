@@ -1,72 +1,112 @@
+// personal task manager with external API data display 
+
 import { useState } from 'react';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 import './App.css';
 
 // Import your components here
-// import Button from './components/Button';
-// import Navbar from './components/Navbar';
-// import Footer from './components/Footer';
-// import TaskManager from './components/TaskManager';
+import Button from './components/Button';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import TaskManager from './components/TaskManager';
+import Posts from './pages/Posts';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      {/* Navbar component will go here */}
-      <header className="bg-white dark:bg-gray-800 shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold">PLP Task Manager</h1>
-        </div>
-      </header>
-
-      <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg p-6">
-          <div className="flex flex-col items-center justify-center">
-            <p className="text-lg mb-4">
-              Edit <code className="font-mono bg-gray-200 dark:bg-gray-700 p-1 rounded">src/App.jsx</code> and save to test HMR
-            </p>
-            
-            <div className="flex items-center gap-4 my-4">
-              <button
-                onClick={() => setCount((count) => count - 1)}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-              >
-                -
-              </button>
-              <span className="text-xl font-bold">{count}</span>
-              <button
-                onClick={() => setCount((count) => count + 1)}
-                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
-              >
-                +
-              </button>
-            </div>
-
-            <p className="text-gray-500 dark:text-gray-400 mt-4">
-              Implement your TaskManager component here
-            </p>
-          </div>
-        </div>
-        
-        {/* API data display will go here */}
-        <div className="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4">API Data</h2>
-          <p className="text-gray-500 dark:text-gray-400">
-            Fetch and display data from an API here
-          </p>
-        </div>
-      </main>
-
-      {/* Footer component will go here */}
-      <footer className="bg-white dark:bg-gray-800 shadow mt-auto">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} PLP Task Manager. All rights reserved.
-          </p>
-        </div>
-      </footer>
-    </div>
-  );
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  )
 }
 
-export default App; 
+function AppContent() {
+  const [count, setCount] = useState(0);
+  const [activeSection, setActiveSection] = useState('tasks');
+  const { isDark } = useTheme();
+
+  return (
+    <div className={`min-h-screen transition-colors duration-200 ${
+      isDark ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'
+    }`}>
+      <Navbar />
+      
+      <main className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        {/* Navigation Tabs */}
+        <div className="flex flex-wrap gap-3 mb-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+          <Button 
+            variant={activeSection === 'tasks' ? 'primary' : 'secondary'}
+            onClick={() => setActiveSection('tasks')}
+            className="flex items-center gap-2"
+          >
+            <span>📝</span>
+            Task Manager
+          </Button>
+          <Button 
+            variant={activeSection === 'api' ? 'primary' : 'secondary'}
+            onClick={() => setActiveSection('api')}
+            className="flex items-center gap-2"
+          >
+            <span>🌐</span>
+            API Data Explorer
+          </Button>
+          
+          {/* Section Indicator */}
+          <div className="ml-auto flex items-center">
+            <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+              {activeSection === 'tasks' ? 'Task Management' : 'API Explorer'}
+            </span>
+          </div>
+        </div>
+
+        {activeSection === 'tasks' ? (
+          <div className="space-y-8">
+            <TaskManager />
+            
+            {/* Demo Counter */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+              <div className="text-center">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+                  Interactive Counter Demo
+                </h3>
+                
+                <div className="flex items-center justify-center gap-4 my-4">
+                  <Button
+                    variant="danger"
+                    size="lg"
+                    onClick={() => setCount((count) => count - 1)}
+                    className="w-12 h-12 rounded-full text-lg"
+                  >
+                    -
+                  </Button>
+                  <span className="text-3xl font-bold text-gray-900 dark:text-white min-w-16 text-center">
+                    {count}
+                  </span>
+                  <Button
+                    variant="success"
+                    size="lg"
+                    onClick={() => setCount((count) => count + 1)}
+                    className="w-12 h-12 rounded-full text-lg"
+                  >
+                    +
+                  </Button>
+                </div>
+                
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
+                  This demonstrates component state management
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <Posts />
+        )}
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
+
+
+
+export default App

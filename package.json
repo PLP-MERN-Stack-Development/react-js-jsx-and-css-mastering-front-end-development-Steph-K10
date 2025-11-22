@@ -1,0 +1,38 @@
+{
+  "name": "react-js-jsx-and-css-mastering-front-end-development-steph-k10",
+  "version": "1.0.0",
+  "description": "This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PLP-MERN-Stack-Development/react-js-jsx-and-css-mastering-front-end-development-Steph-K10.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PLP-MERN-Stack-Development/react-js-jsx-and-css-mastering-front-end-development-Steph-K10/issues"
+  },
+  "homepage": "https://github.com/PLP-MERN-Stack-Development/react-js-jsx-and-css-mastering-front-end-development-Steph-K10#readme",
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
+    "vite": "^7.2.4"
+  }
+}
