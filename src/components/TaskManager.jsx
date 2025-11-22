@@ -62,7 +62,7 @@ const TaskManager = () => {
   const completedTasksCount = tasks.filter(task => task.completed).length;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 transition-smooth hover-lift">
       <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Task Manager</h2>
 
       {/* Task input form */}
@@ -137,7 +137,7 @@ const TaskManager = () => {
           filteredTasks.map((task) => (
             <div
               key={task.id}
-              className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 group"
+              className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-smooth group transform hover:scale-[1.02]"
             >
               <div className="flex items-center gap-3 flex-1">
                 <input
@@ -160,7 +160,7 @@ const TaskManager = () => {
                 variant="danger"
                 size="sm"
                 onClick={() => deleteTask(task.id)}
-                className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform hover:scale-110 pressable"
                 aria-label="Delete task"
               >
                 🗑️
