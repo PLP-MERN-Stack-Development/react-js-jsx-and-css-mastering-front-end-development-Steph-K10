@@ -6,9 +6,8 @@
   "description": "A responsive React application with task management and API integration",
   "scripts": {
     "dev": "vite",
-    "build": "node -e \"require('child_process').execSync('npx vite build', {stdio: 'inherit'})\"",
-    "preview": "vite preview",
-    "vercel-build": "node -e \"require('child_process').execSync('npx vite build', {stdio: 'inherit'})\""
+    "build": "node build.js",
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
