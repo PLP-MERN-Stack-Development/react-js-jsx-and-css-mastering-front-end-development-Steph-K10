@@ -25,7 +25,7 @@ This assignment focuses on building a responsive React application using JSX and
 - Fast and performant
 
 ## 🚀 Live Demo
-Live Application URL: [YOUR_VERCEL_APP_URL_HERE]()
+Live Application URL: [https://react-js-jsx-and-css-mastering-fron-tau-mocha.vercel.app/](https://react-js-jsx-and-css-mastering-fron-tau-mocha.vercel.app/)
 
 
 ## 📸 Application Screenshots
